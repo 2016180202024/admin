@@ -17,12 +17,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    /*.body {
-      background: url("src/assets/background_login.jpg") no-repeat;
-    }*/
     .login-view{
-        background: url("~@/../static/image/login_background.png") no-repeat;
-        background-size: 100% 100%;
+        background-color: #2c3e50;
         width: 100%;
         height: 100%;
     }

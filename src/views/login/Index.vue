@@ -18,7 +18,8 @@ export default {
 
 <style scoped lang="scss">
     .login-view{
-        background-color: #2c3e50;
+        background: url("~@/../static/image/login_background.png") no-repeat;
+        background-size: 100% 100%;
         width: 100%;
         height: 100%;
     }

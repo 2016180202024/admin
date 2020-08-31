@@ -186,7 +186,6 @@
 
 <script>
 import BackToTop from '../../components/BackToTop/index'
-import {getToken} from '../../scripts/utils/authUtils'
 import {freezeUser, querySimpleUserInfo} from '../../scripts/api/user'
 import {mapGetters} from 'vuex'
 import {showMessage} from '../../scripts/utils/utils'

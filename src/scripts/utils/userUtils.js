@@ -11,6 +11,7 @@ import {isMail, isTelenumber} from './validateUtils'
 import {showMessage} from './utils'
 import {getExpiry, getToken} from './authUtils'
 import CryptoJS from 'crypto-js'
+import {initRouter} from './routerUtils'
 
 export function encryptPassword (password) {
   let encodePassword = CryptoJS.enc.Utf8.parse(password)
@@ -35,10 +36,11 @@ export function getUserNameOptionType (username) {
 
 export function sendLogin (option, self) {
   self.$store.dispatch('Login', option).then((status) => {
+    console.log(status)
     switch (status) {
       case 200:
         showMessage(self, '登录成功！', 'success')
-        self.$router.push('/')
+        self.$router.push(initRouter)
         break
       case 204:
         showMessage(self, '用户名或密码错误，请重新输入！', 'error')
@@ -46,6 +48,10 @@ export function sendLogin (option, self) {
         break
       case -2:
         showMessage(self, '该账号已被停用，请联系管理员！', 'error')
+        self.getPictureCode()
+        break
+      case -3:
+        showMessage(self, '该账号无权限进入后台管理系统！', 'error')
         self.getPictureCode()
         break
       default:
@@ -66,7 +72,7 @@ export function sendLogin4IdentifyCode (option, self) {
     switch (status) {
       case 200:
         showMessage(self, '登录成功！', 'success')
-        self.$router.push('/home')
+        self.$router.push(initRouter)
         break
       case 204:
         showMessage(self, '用户名或密码错误，请重新输入！', 'error')
@@ -74,6 +80,10 @@ export function sendLogin4IdentifyCode (option, self) {
         break
       case -2:
         showMessage(self, '该账号已被停用，请联系管理员！', 'error')
+        self.getPictureCode()
+        break
+      case -3:
+        showMessage(self, '该账号无权限进入后台管理系统！', 'error')
         self.getPictureCode()
         break
       default:

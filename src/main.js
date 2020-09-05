@@ -8,6 +8,8 @@ import '../static/layui/css/layui.css'
 import ElementUI from 'element-ui'
 import store from './store'
 import axios from 'axios'
+import './assets/icon/user/iconfont.css' // 引入第三方样式
+import './assets/icon/display/iconfont.css' // 引入第三方样式
 
 Vue.use(ElementUI)
 Vue.prototype.$axios = axios

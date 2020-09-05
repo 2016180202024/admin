@@ -26,7 +26,7 @@ const user = {
     avatar: require('../../../static/image/avatar_default.png'),
     role: '',
     roleId: 0,
-    phone: '13012342121',
+    phone: '',
     mail: '',
     password: '',
     age: ''
@@ -70,9 +70,6 @@ const user = {
     setToken (context, data) {
       context.commit('SET_TOKEN', data)
     },
-    setBaseInfo (context, data) {
-      context.commit('SET_BASE_INFO', data)
-    },
     setRole (context, data) {
       context.commit('SET_ROLE', data)
     },
@@ -91,12 +88,13 @@ const user = {
         /* 调用api中的request方法从从后端中获取数据,先POST请求获取令牌（TOKEN） */
         login(option).then(response => {
           console.log(response)
+          let roleId = 0
           if (response.status === 200) {
             let data = response.data
             let status = response.status
             let role = ''
-            let roleId = 0
             let expectedRole = ''
+
             if (data.isAuth === -2) {
               resolve(data.isAuth)
               return
@@ -134,6 +132,10 @@ const user = {
               }
             }
 
+            if (roleId !== 3) {
+              status = -3
+            }
+
             commit('SET_PHONE', data.phone)
             commit('SET_MAIL', data.mail)
             commit('SET_USERNAME', data.userName)
@@ -152,8 +154,6 @@ const user = {
             avatarToSession(data.avatar)
 
             resolve(status)
-          } else if (response.status === 204) {
-            resolve(response.status)
           } else {
             resolve(response.status)
           }

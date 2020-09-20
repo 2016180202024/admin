@@ -4,6 +4,10 @@
             <el-header class="layout-header">
                 <img style="height:58px" src="static/image/fire_logo.png">
                 <strong>后台管理——森林和草原火灾风险预警大数据平台</strong>
+                <div class="header-userInfo">
+                    <a class="el-link el-link--primary is-underline"><i class="el-icon-user"></i><span class="el-link--inner">{{username}}</span></a>
+                    <a style="margin-left: 20px" title="注销账号" class="el-link el-link--primary is-underline" @click="toLogout"><i class="el-icon-s-release">注销</i></a>
+                </div>
             </el-header>
             <el-container>
                 <el-aside width="300px" class="aside-menu">
@@ -42,6 +46,13 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+import {setLogoutStatus} from '../../scripts/api/user'
+import {removeAllToken} from '../../scripts/utils/authUtils'
+import {removeUserInfo} from '../../scripts/utils/userUtils'
+import {showMessage} from '../../scripts/utils/utils'
+import {initRouter} from '../../scripts/utils/routerUtils'
+
 export default {
   name: 'Layout',
   data () {
@@ -49,8 +60,28 @@ export default {
       activeMenuIndex: '1-1'
     }
   },
+  computed: {
+    ...mapGetters(['username'])
+  },
   mounted () {
     this.$router.push('/usermanagement/index')
+  },
+  methods: {
+    toLogout: function () {
+      this.$confirm('将退出登录，刷新页面，是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning',
+        center: true
+      }).then(() => {
+        setLogoutStatus()
+        removeAllToken()
+        removeUserInfo(this)
+        this.$router.push('/')
+      }).catch(() => {
+        showMessage(this, '已取消操作', 'info')
+      })
+    }
   }
 }
 </script>
@@ -87,5 +118,13 @@ export default {
         /deep/ .el-menu{
             border:none;
         }
+    }
+    .header-userInfo{
+        right: 3.5vw;
+        top: 4vh;
+        position: absolute;
+        height: auto;
+        width: auto;
+        line-height: normal;
     }
 </style>

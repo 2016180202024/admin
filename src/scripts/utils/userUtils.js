@@ -12,6 +12,7 @@ import {showMessage} from './utils'
 import {getExpiry, getToken} from './authUtils'
 import CryptoJS from 'crypto-js'
 import {initRouter} from './routerUtils'
+import {setLoginStatus} from '../api/user'
 
 export function encryptPassword (password) {
   let encodePassword = CryptoJS.enc.Utf8.parse(password)
@@ -41,6 +42,22 @@ export function sendLogin (option, self) {
       case 200:
         showMessage(self, '登录成功！', 'success')
         self.$router.push(initRouter)
+
+        // 向数据库中写入登录信息
+        let loginStatus = {
+          phone: option,
+          platform: 'admin'
+        }
+        setLoginStatus(loginStatus).then(
+          (res) => {
+            console.log(res)
+          }
+        ).catch(
+          (err) => {
+            console.log(err)
+          }
+        )
+
         break
       case 204:
         showMessage(self, '用户名或密码错误，请重新输入！', 'error')

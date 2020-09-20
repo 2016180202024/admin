@@ -20,6 +20,12 @@ Vue.use(Router)
 
 export const constantRoutes = [
   {
+    path: '/',
+    component: import('../views/login/Index.vue'),
+    redirect: '/login',
+    hidden: true
+  },
+  {
     path: '/login',
     component: () => import('../views/login/Index.vue'),
     hidden: true
@@ -28,6 +34,7 @@ export const constantRoutes = [
     path: '/usermanagement',
     component: Layout,
     meta: {title: '用户管理', icon: 'user'},
+    redirect: '/usermanagement/index',
     children: [
       {
         path: 'index',

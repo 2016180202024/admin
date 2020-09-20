@@ -2,7 +2,7 @@
   <el-card shadow="hover" style="margin-top:3vh;margin-left: 2vw;margin-right: 2vw">
     <div slot="header" class="clearfix">
       <el-col :span="14">
-        <strong>登录信息管理</strong>
+        <strong>反馈信息管理</strong>
       </el-col>
       <el-col :span="10">
         <el-input
@@ -94,84 +94,11 @@
 </template>
 
 <script>
-import {queryLoginInfo} from '../../scripts/api/user'
-import {showMessage} from '../../scripts/utils/utils'
-
 export default {
-  name: 'LoginInfo',
-  data () {
-    return {
-      loginDataSize: 10,
-      loginInfoDataLoading: false,
-      searchContent: '',
-      pageSize: 10,
-      currentPage: 1,
-      loginInfoData: [
-        {
-          adminPhone: '18053007962',
-          ip: '116.168.1.1',
-          platform: 'web',
-          browser: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
-          state: '1',
-          loginTime: '2020-1-1 12:00:00',
-          logoutTime: '2020-1-1 13:10:10',
-          loginDuration: '1h 10m 10s'
-        }
-      ]
-    }
-  },
-  methods: {
-    getLoginInfo: function () {
-      this.loginInfoDataLoading = true
-      let queryLoginInfoReq = {
-        searchContent: this.searchContent,
-        currentPage: this.currentPage,
-        pageSize: this.pageSize
-      }
-      queryLoginInfo(queryLoginInfoReq).then((response) => {
-        if (response.data.success) {
-          this.$message({
-            message: '查询成功！',
-            type: 'success'
-          })
-          if (response.data.message.indexOf('size') >= 0) {
-            this.loginDataSize = parseInt(response.data.message.split(':')[1])
-          } else {
-            showMessage(this, response.data.message, 'error')
-          }
-          this.loginInfoData = response.data.entity
-        }
-      }).catch((error) => {
-        this.$message.error(error)
-      }).finally(() => {
-        this.loginInfoDataLoading = false
-      })
-    },
-    handleSizeChange: function (newSize) {
-      this.pageSize = newSize
-      this.getLoginInfo()
-    },
-    handleCurrentChange: function (newPage) {
-      this.currentPage = newPage
-      this.getLoginInfo()
-    }
-  },
-  mounted () {
-    this.getLoginInfo()
-  }
+  name: "FeedbackInfo"
 }
 </script>
 
 <style scoped>
-.clearfix:before,
-.clearfix:after {
-  display: table;
-  content: "";
-}
-.clearfix:after {
-  clear: both
-}
-.pagination {
-  margin-top: 20px;
-}
+
 </style>

@@ -46,6 +46,12 @@ export const constantRoutes = [
         name: 'user',
         component: () => import('../views/usermanagement/LoginInfo'),
         meta: {title: '登录信息', icon: 'login'}
+      },
+      {
+        path: 'feedbackInfo',
+        name: 'user',
+        component: () => import('../views/usermanagement/FeedbackInfo'),
+        meta: {title: '反馈信息', icon: 'info'}
       }
     ]
   }

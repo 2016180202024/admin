@@ -22,12 +22,17 @@
                                 <el-menu-item index="/usermanagement/index"><i class="el-icon-reading"></i>用户信息</el-menu-item>
                                 <el-menu-item index="/usermanagement/roleAuth"><i class="el-icon-bank-card"></i>角色审核</el-menu-item>
                                 <el-menu-item index="/usermanagement/loginInfo"><i class="el-icon-data-analysis"></i>登录信息</el-menu-item>
+                                <el-menu-item index="/usermanagement/feedbackInfo"><i class="el-icon-data-analysis"></i>反馈信息</el-menu-item>
                         </el-submenu>
                         <el-menu-item index="2">
                             <i class="el-icon-menu"></i>
-                            <span slot="title">系统管理</span>
+                            <span slot="title">消息管理</span>
                         </el-menu-item>
                         <el-menu-item index="3">
+                          <i class="el-icon-menu"></i>
+                          <span slot="title">系统管理</span>
+                        </el-menu-item>
+                        <el-menu-item index="4">
                             <i class="el-icon-document"></i>
                             <span slot="title">数据管理</span>
                         </el-menu-item>

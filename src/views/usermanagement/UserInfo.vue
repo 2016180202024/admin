@@ -76,9 +76,16 @@
                                     element-loading-text="拼命加载中"
                                     element-loading-spinner="el-icon-loading"
                                     element-loading-background="rgba(200, 200, 200, 0.8)"
+                                    type="index"
                                     style="width: 100%"
                                     :row-class-name="tableRowClassName"
                                     @filter-change="userDataFilterChange">
+                                <el-table-column
+                                  type="index"
+                                  fixed
+                                  label="序号"
+                                  width="50">
+                                </el-table-column>
                                 <el-table-column
                                         prop="phone"
                                         label="电话"
@@ -168,7 +175,7 @@
                             <el-row span="6">
                                 <div class="user-info-name">用户类型：{{form.roleName}}</div>
                             </el-row>
-                        </el-form>
+                        </el-form>x
                         <span slot="footer" class="dialog-footer">
                     <el-button @click="editVisible = false">取消</el-button>
                     <el-button type="primary" @click="saveEdit">确定</el-button>
@@ -265,7 +272,6 @@ export default {
           } else {
             showMessage(this, response.data.message, 'error')
           }
-
           this.userData = response.data.entity
           // this.setCurrentPageData(1)
         }

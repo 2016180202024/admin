@@ -7,7 +7,7 @@
                         <div class="user-info">
                             <img :src=avatarSrc class="user-avator" alt="">
                             <div class="user-info-cont">
-                                <div class="user-info-name">{{name}}</div>
+                                <div class="user-info-name">{{username}}</div>
                                 <div class="user-info-name" style="margin-top: 2vh">{{roleZh}}</div>
                             </div>
                         </div>
@@ -203,7 +203,6 @@ export default {
   data () {
     return {
       avatarSrc: 'http://teamhe.uestc.edu.cn/fire/data/file/avatar/default/avatar.png',
-      name: '陈瑞',
       roleZh: '管理员用户',
       userInfoSearchContent: '',
       totalViewCount: 1000,
@@ -244,7 +243,7 @@ export default {
     this.getSimpleUserInfo(1)
   },
   computed: {
-    ...mapGetters(['phone'])
+    ...mapGetters(['phone', 'username'])
   },
   methods: {
     tableRowClassName: function ({row, rowIndex}) {

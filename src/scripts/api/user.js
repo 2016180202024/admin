@@ -9,6 +9,7 @@
 
 import request from '../utils/requestUtils'
 import {getAPINameByProjectFlag} from '../utils/projectControl'
+import {getToken} from '../utils/authUtils'
 
 /**
  * @description 获取简要用户信息
@@ -69,6 +70,39 @@ export function authUser (authUserReq) {
     url: getAPINameByProjectFlag() + '/user_backend/authUser',
     method: 'post',
     data: authUserReq
+  })
+}
+
+/**
+ * @description 写入用户登录信息
+ * @param loginStatus
+ */
+export function setLoginStatus (loginStatus) {
+  return request({
+    url: getAPINameByProjectFlag() + '/user_foreend/login/status',
+    method: 'post',
+    headers: {
+      'Authorization': getToken()
+    },
+    data: loginStatus
+  })
+}
+
+/**
+ * @description 用户退出时，更新用户登录消息
+ * @param loginStatus
+ */
+export function setLogoutStatus () {
+  let formData = new FormData()
+  formData.append('Authorization', getToken())
+  formData.append('platform', 'admin')
+  return request({
+    url: getAPINameByProjectFlag() + '/user_foreend/logout/status',
+    method: 'post',
+    headers: {
+      'Authorization': getToken()
+    },
+    data: formData
   })
 }
 

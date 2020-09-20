@@ -105,3 +105,15 @@ export function setLogoutStatus () {
     data: formData
   })
 }
+
+/**
+ * @description 用户登录信息查询
+ * @param queryLoginInfoReq
+ */
+export function queryLoginInfo (queryLoginInfoReq) {
+  return request({
+    url: getAPINameByProjectFlag() + '/user_backend/queryLoginInfo',
+    method: 'post',
+    data: queryLoginInfoReq
+  })
+}

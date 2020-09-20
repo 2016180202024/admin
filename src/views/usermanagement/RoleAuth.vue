@@ -3,9 +3,7 @@
         <div slot="header" class="clearfix">
             <el-col :span="16">
                 <el-tabs class="role-auth-tab" v-model="activeName" @tab-click="handleClick">
-                    <el-tab-pane label="待审核" name="authing">
-
-                    </el-tab-pane>
+                    <el-tab-pane label="待审核" name="authing"></el-tab-pane>
                     <el-tab-pane label="已授权" name="authed"></el-tab-pane>
                     <el-tab-pane label="未授权" name="notAuth"></el-tab-pane>
                 </el-tabs>
@@ -32,8 +30,15 @@
                         element-loading-text="拼命加载中"
                         element-loading-spinner="el-icon-loading"
                         element-loading-background="rgba(200, 200, 200, 0.8)"
+                        type="index"
                         style="width: 100%"
                         @filter-change="authUserInfoDataFilterChange">
+                    <el-table-column
+                      type="index"
+                      fixed
+                      label="序号"
+                      width="50">
+                    </el-table-column>
                     <el-table-column
                             prop="phone"
                             label="电话"
@@ -132,9 +137,9 @@
                     width="30%">
                 <el-input v-model="description" placeholder="请输入内容" type="textarea"></el-input>
                 <span slot="footer" class="dialog-footer">
-    <el-button @click="dialogVisible = false">取 消</el-button>
-    <el-button type="primary" @click="confirmRefuseAuthUser">确 定</el-button>
-  </span>
+                  <el-button @click="dialogVisible = false">取 消</el-button>
+                  <el-button type="primary" @click="confirmRefuseAuthUser">确 定</el-button>
+                </span>
             </el-dialog>
         </div>
     </el-card>
@@ -299,7 +304,7 @@ export default {
 .clearfix:after {
     clear: both
 }
-    .operation .el-col{
-        text-align: center;
-    }
+.operation .el-col{
+    text-align: center;
+}
 </style>

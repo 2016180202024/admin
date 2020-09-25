@@ -117,3 +117,27 @@ export function queryLoginInfo (queryLoginInfoReq) {
     data: queryLoginInfoReq
   })
 }
+
+/**
+ * @description 用户反馈信息查询
+ * @param queryFeedbackInfoReq
+ */
+export function queryFeedbackInfo (queryFeedbackInfoReq) {
+  return request({
+    url: getAPINameByProjectFlag() + '/user_backend/queryFeedbackInfo',
+    method: 'post',
+    data: queryFeedbackInfoReq
+  })
+}
+
+/**
+ * @description 用户反馈信息修改
+ * @param updateIsReadReq
+ */
+export function updateFeedbackInfo (updateIsReadReq) {
+  return request({
+    url: getAPINameByProjectFlag() + '/user_backend/updateFeedbackInfo',
+    method: 'post',
+    data: updateIsReadReq
+  })
+}

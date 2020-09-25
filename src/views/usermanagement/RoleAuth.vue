@@ -48,7 +48,7 @@
                             prop="userName"
                             label="用户名"
                             width="120">
-                    </el-table-column>、
+                    </el-table-column>
                     <el-table-column
                             prop="mail"
                             label="邮箱"

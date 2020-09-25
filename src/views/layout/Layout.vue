@@ -56,7 +56,6 @@ import {setLogoutStatus} from '../../scripts/api/user'
 import {removeAllToken} from '../../scripts/utils/authUtils'
 import {removeUserInfo} from '../../scripts/utils/userUtils'
 import {showMessage} from '../../scripts/utils/utils'
-import {initRouter} from '../../scripts/utils/routerUtils'
 
 export default {
   name: 'Layout',

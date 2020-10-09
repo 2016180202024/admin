@@ -23,23 +23,36 @@
                                 <i class="el-icon-user-solid"></i>
                                 <span>用户管理</span>
                             </template>
-                                <el-menu-item index="/usermanagement/index"><i class="el-icon-reading"></i>用户信息</el-menu-item>
-                                <el-menu-item index="/usermanagement/roleAuth"><i class="el-icon-bank-card"></i>角色审核</el-menu-item>
-                                <el-menu-item index="/usermanagement/loginInfo"><i class="el-icon-data-analysis"></i>登录信息</el-menu-item>
-                                <el-menu-item index="/usermanagement/feedbackInfo"><i class="el-icon-data-analysis"></i>反馈信息</el-menu-item>
+                            <el-menu-item index="/usermanagement/index"><i class="el-icon-reading"></i>用户信息</el-menu-item>
+                            <el-menu-item index="/usermanagement/roleAuth"><i class="el-icon-bank-card"></i>角色审核</el-menu-item>
+                            <el-menu-item index="/usermanagement/loginInfo"><i class="el-icon-data-analysis"></i>登录信息</el-menu-item>
+                            <el-menu-item index="/usermanagement/feedbackInfo"><i class="el-icon-data-analysis"></i>反馈信息</el-menu-item>
                         </el-submenu>
-                        <el-menu-item index="2">
+                        <el-submenu index="2">
+                          <template slot="title">
                             <i class="el-icon-menu"></i>
-                            <span slot="title">消息管理</span>
-                        </el-menu-item>
-                        <el-menu-item index="3">
-                          <i class="el-icon-menu"></i>
-                          <span slot="title">系统管理</span>
-                        </el-menu-item>
-                        <el-menu-item index="4">
+                            <span>消息管理</span>
+                          </template>
+                          <el-menu-item index="/messageManagement/userMessage"><i class="el-icon-reading"></i>用户消息发送</el-menu-item>
+                          <el-menu-item index="/messageManagement/warningMessage"><i class="el-icon-bank-card"></i>预警消息发送</el-menu-item>
+                        </el-submenu>
+                        <el-submenu index="3">
+                          <template slot="title">
+                            <i class="el-icon-menu"></i>
+                            <span>系统管理</span>
+                          </template>
+                          <el-menu-item index="/systemManagement/serviceManagement"><i class="el-icon-reading"></i>服务监控</el-menu-item>
+                          <el-menu-item index="/systemManagement/operationManagement"><i class="el-icon-bank-card"></i>运行监控</el-menu-item>
+                          <el-menu-item index="/systemManagement/serviceLaunch"><i class="el-icon-bank-card"></i>服务启动</el-menu-item>
+                        </el-submenu>
+                        <el-submenu index="4">
+                          <template slot="title">
                             <i class="el-icon-document"></i>
-                            <span slot="title">数据管理</span>
-                        </el-menu-item>
+                            <span>数据管理</span>
+                          </template>
+                          <el-menu-item index="/dataManagement/produceManagement"><i class="el-icon-reading"></i>数据生产监控</el-menu-item>
+                          <el-menu-item index="/dataManagement/orderManagement"><i class="el-icon-bank-card"></i>订单生产监控</el-menu-item>
+                        </el-submenu>
                     </el-menu>
                 </el-aside>
                 <el-main>

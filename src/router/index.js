@@ -61,6 +61,69 @@ export const constantRoutes = [
         meta: {title: '反馈信息', icon: 'info'}
       }
     ]
+  },
+  {
+    path: '/messageManagement',
+    component: Layout,
+    meta: {title: '消息管理', icon: 'info'},
+    children: [
+      {
+        path: 'userMessage',
+        name: 'message',
+        component: () => import('../views/messageManagement/UserMessage'),
+        meta: {title: '用户消息发送', icon: 'info'}
+      },
+      {
+        path: 'warningMessage',
+        name: 'message',
+        component: () => import('../views/messageManagement/WarningMessage'),
+        meta: {title: '预警消息发送', icon: 'info'}
+      }
+    ]
+  },
+  {
+    path: '/systemManagement',
+    component: Layout,
+    meta: {title: '系统管理', icon: 'info'},
+    children: [
+      {
+        path: 'operationManagement',
+        name: 'systemManagement',
+        component: () => import('../views/systemManagement/OperationManagement'),
+        meta: {title: '系统运行监控', icon: 'info'}
+      },
+      {
+        path: 'serviceManagement',
+        name: 'systemManagement',
+        component: () => import('../views/systemManagement/ServiceManagement'),
+        meta: {title: '系统服务监控', icon: 'info'}
+      },
+      {
+        path: 'serviceLaunch',
+        name: 'systemManagement',
+        component: () => import('../views/systemManagement/ServiceLaunch'),
+        meta: {title: '系统服务操作', icon: 'info'}
+      }
+    ]
+  },
+  {
+    path: '/dataManagement',
+    component: Layout,
+    meta: {title: '数据管理', icon: 'info'},
+    children: [
+      {
+        path: 'produceManagement',
+        name: 'dataManagement',
+        component: () => import('../views/dataManagement/ProduceManagement'),
+        meta: {title: '系统运行监控', icon: 'info'}
+      },
+      {
+        path: 'orderManagement',
+        name: 'dataManagement',
+        component: () => import('../views/dataManagement/OrderManagement'),
+        meta: {title: '系统服务监控', icon: 'info'}
+      }
+    ]
   }
 ]
 

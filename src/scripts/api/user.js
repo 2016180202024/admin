@@ -141,3 +141,39 @@ export function updateFeedbackInfo (updateIsReadReq) {
     data: updateIsReadReq
   })
 }
+
+/**
+ * @description 根据Phone查询用户信息（phone+userName）
+ * @param queryPhoneInfoReq
+ */
+export function queryPhoneInfo (queryPhoneInfoReq) {
+  return request({
+    url: getAPINameByProjectFlag() + '/user_backend/queryPhoneInfo',
+    method: 'post',
+    data: queryPhoneInfoReq
+  })
+}
+
+/**
+ * @description 发送个人/群体用户消息（phone+title+content）
+ * @param insertSystemMessage
+ */
+export function releaseSystemMessage (insertSystemMessage) {
+  return request({
+    url: getAPINameByProjectFlag() + '/user_backend/insertSystemMessage',
+    method: 'post',
+    data: insertSystemMessage
+  })
+}
+
+/**
+ * @description 查询source发布的历史消息
+ * @param queryHistoryInfoReq
+ */
+export function queryHistoryInfo (queryHistoryInfoReq) {
+  return request({
+    url: getAPINameByProjectFlag() + '/user_backend/queryHistoryInfo',
+    method: 'post',
+    data: queryHistoryInfoReq
+  })
+}

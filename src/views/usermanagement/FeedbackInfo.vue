@@ -58,7 +58,7 @@
           <el-table-column
             prop="content"
             label="反馈信息"
-            width="180">
+            width="250">
           </el-table-column>
           <el-table-column
             label="反馈图片"
@@ -115,7 +115,7 @@
         title="用户反馈回复信息："
         :visible.sync="dialogVisible"
         width="30%">
-        <el-input v-model="description" placeholder="请输入内容" type="textarea"></el-input>
+        <el-input v-model="description" placeholder="请输入内容" type="textarea" autosize></el-input>
         <span slot="footer" class="dialog-footer">
           <el-button @click="dialogVisible = false">取 消</el-button>
           <el-button type="primary" @click="sendReplyInfo">确 定</el-button>
